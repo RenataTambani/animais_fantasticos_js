@@ -239,12 +239,6 @@ html.textomaior {
   animation: show 0.8s forwards; /*forwards mantem a animação no estado final (para ela nao voltar ao inicial -30px por ex)*/
 }
 
-/*A regra @keyframes vai definir as etapas da sua animação. Com ela você vai informar o início e o final do valor da propriedade CSS que você deseja animar.
-
-Vale lembrar a animação acontece na transição de um valor para o outro. Exemplo, na transição de 100px de width para 200px de width. Ou na transição do red para o blue (no caso de cores).
-
-Não tem mistério para declararmos ela. Basta nomear a sua animação e definir as etapas da mesma. */
-
 @keyframes show {
   from {
     opacity: 0;
@@ -252,6 +246,37 @@ Não tem mistério para declararmos ela. Basta nomear a sua animação e definir
   }
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.js-accordion dd {
+  display: none;
+}
+
+.js-accordion dt::after {
+  content: "↓";
+  margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after {
+  content: "↑";
+}
+
+.js-accordion dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translate3d(-10px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    max-height: 20px;
     transform: translate3d(0, 0, 0);
   }
 }
