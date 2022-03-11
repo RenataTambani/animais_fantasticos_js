@@ -28,6 +28,18 @@ body {
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
+.azul {
+  background-color: rgb(80, 169, 252);
+}
+
+.vermelho {
+  background-color: #e54;
+}
+
+html.textomaior {
+  font-size: 150%;
+}
+
 .menu {
   grid-column: 3 / 5;
   margin-top: 2rem;
@@ -124,7 +136,9 @@ body {
 .animais-descricao section {
   margin-bottom: 3rem;
 }
-
+.animais-lista li {
+  cursor: pointer;
+}
 .faq-lista {
   grid-column: 2 / 4;
 }
@@ -213,5 +227,31 @@ body {
   }
   .copy {
     margin-bottom: 0px;
+  }
+}
+
+.js-tabcontent section {
+  display: none;
+}
+
+.js-tabcontent section.ativo {
+  display: block !important;
+  animation: show 0.8s forwards; /*forwards mantem a animação no estado final (para ela nao voltar ao inicial -30px por ex)*/
+}
+
+/*A regra @keyframes vai definir as etapas da sua animação. Com ela você vai informar o início e o final do valor da propriedade CSS que você deseja animar.
+
+Vale lembrar a animação acontece na transição de um valor para o outro. Exemplo, na transição de 100px de width para 200px de width. Ou na transição do red para o blue (no caso de cores).
+
+Não tem mistério para declararmos ela. Basta nomear a sua animação e definir as etapas da mesma. */
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
